@@ -1,5 +1,5 @@
 {
-  "name": "rn-stories",
+  "name": "react-native-stories-media",
   "version": "0.0.1",
   "description": "Stories for React native Like Instagram, Whatsapp and Twitter",
   "main": "index.tsx",
