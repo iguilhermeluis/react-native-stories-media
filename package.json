@@ -2,31 +2,49 @@
   "name": "rn-stories",
   "version": "0.0.1",
   "description": "Stories for React native Like Instagram, Whatsapp and Twitter",
-  "main": "index.js",
+  "main": "index.tsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "react-native",
-    "stories"
+    "stories",
+    "stories instagram"
   ],
   "bugs": {
     "url": "https://github.com/iguilhermeluis/rn-stories/issues"
   },
   "homepage": "https://github.com/iguilhermeluis/rn-stories/blob/master/README.md",
-  "peerDependencies": {
-    "react": "^17.0.1",
-    "react-native": "^0.63.4"
+  "dependencies": {
+    "react-native-video": "^5.1.0-alpha8",
+    "react-native-webview": "^10.9.3",
+    "react-native-swipe-gestures": "^1.0.3",
+    "react-native-vector-icons": "^6.6.0",
+    "react-native-3dcube-navigation": "^1.0.4",
+    "react-native-modalbox": "^1.7.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.6",
-    "babel-preset-expo": "~8.1.0",
-    "metro-react-native-babel-preset": "^0.59.0"
+    "@babel/core": "^7.4.5",
+    "@babel/runtime": "^7.4.5",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0",
+    "metro-react-native-babel-preset": "^0.54.1",
+    "react-test-renderer": "16.8.3",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "prettier": "^1.16.4"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/iguilhermeluis/rn-stories"
   },
-  "author": "Guilherme Faustino <contato@guilhermeluis.com>",
+  "author": "Guilherme Faustino <contato@guilhermeluis.com> (https://github.com/iguilhermeluis)",
   "license": "MIT"
 }

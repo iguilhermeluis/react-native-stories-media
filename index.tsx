@@ -8,12 +8,17 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { StoryType } from "./src";
 
 const { CubeNavigationHorizontal } = require("react-native-3dcube-navigation");
 
 import StoryContainer from "./src/StoryContainer";
 
-const Stories = (props) => {
+type Props = {
+  data: StoryType[];
+};
+
+const Stories = (props: Props) => {
   const [isModelOpen, setModel] = useState(false);
   const [currentUserIndex, setCurrentUserIndex] = useState(0);
   const [currentScrollValue, setCurrentScrollValue] = useState(0);
@@ -67,8 +72,6 @@ const Stories = (props) => {
       setCurrentScrollValue(scrollValue);
     }
   };
-
-  const renderSeperator = () => <View style={styles.ItemSeparator} />;
 
   return (
     <View style={styles.container}>
