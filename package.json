@@ -1,0 +1,32 @@
+{
+  "name": "rn-stories",
+  "version": "0.0.1",
+  "description": "Stories for React native Like Instagram, Whatsapp and Twitter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "stories"
+  ],
+  "bugs": {
+    "url": "https://github.com/iguilhermeluis/rn-stories/issues"
+  },
+  "homepage": "https://github.com/iguilhermeluis/rn-stories/blob/master/README.md",
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "react-native": "^0.63.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "babel-preset-expo": "~8.1.0",
+    "metro-react-native-babel-preset": "^0.59.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iguilhermeluis/rn-stories"
+  },
+  "author": "Guilherme Faustino <contato@guilhermeluis.com>",
+  "license": "MIT"
+}
