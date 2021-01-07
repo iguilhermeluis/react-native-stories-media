@@ -1,6 +1,6 @@
 # React Native Stories Media ⚡
 
-[![npm version](https://badge.fury.io/js/react-native-stories-media.svg?style=flat)](https://www.npmjs.com/package/react-native-stories-media)
+[![npm version](https://img.shields.io/npm/v/react-native-stories-media.svg)](https://www.npmjs.com/package/react-native-stories-media)
 ![Platform - Android and IOS](https://img.shields.io/badge/platform-Android%20%7C%20IOS-green.svg)
 
 ![](assets/storybg.jpeg)
@@ -54,7 +54,7 @@ npm i react-native-stories-media
 
 ## Usage
 
-For example code, <a href='https://github.com/iguilhermeluis/react-native-stories-media/tree/master/example'><b>Click here</b></a>
+For example code, <a href='https://github.com/iguilhermeluis/react-native-stories-media/blob/main/demo/index.tsx'><b>Click here</b></a>
 
 #### Basic Usage
 

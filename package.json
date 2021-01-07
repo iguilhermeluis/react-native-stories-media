@@ -1,6 +1,6 @@
 {
   "name": "react-native-stories-media",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Stories for React native Like Instagram, Whatsapp and Twitter",
   "main": "index.tsx",
   "scripts": {
