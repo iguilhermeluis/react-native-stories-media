@@ -24,7 +24,7 @@ A simple and fully customizable React Native components that provides a status/s
 
 ## Demo
 
- <img src='https://github.com/iguilhermeluis/rn-stories/blob/main/demo/demo.gif?raw=true' height=480 width=270 />
+ <img src='https://github.com/iguilhermeluis/react-native-stories-media/blob/main/demo/demo.gif?raw=true' height=480 width=270 />
 
 <br>
 
