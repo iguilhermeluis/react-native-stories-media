@@ -45,7 +45,8 @@ export default memo(function UserView(props: Props) {
         </View>
 
         <Text style={styles.time}>
-          Publicado há {diffDateWithNow(props.datePublication)}
+          {!!props.datePublication &&
+            `Publicado há ${diffDateWithNow(props.datePublication)}`}
         </Text>
       </View>
       <TouchableOpacity onPress={props.onClosePress}>

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import {
   ActivityIndicator,
   Dimensions,
@@ -6,18 +6,18 @@ import {
   StyleSheet,
   View,
   TouchableOpacity,
-} from 'react-native';
+} from "react-native";
 
-import {WebView} from 'react-native-webview';
-import Modal from 'react-native-modalbox';
-import GestureRecognizer from 'react-native-swipe-gestures';
-import Story from './Story';
-import UserView from './UserView';
-import Readmore from './Readmore';
-import ProgressArray from './ProgressArray';
-import {StoriesType, StoryType} from '.';
+import { WebView } from "react-native-webview";
+import Modal from "react-native-modalbox";
+import GestureRecognizer from "react-native-swipe-gestures";
+import Story from "./Story";
+import UserView from "./UserView";
+import Readmore from "./Readmore";
+import ProgressArray from "./ProgressArray";
+import { StoriesType, StoryType } from ".";
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
+const SCREEN_WIDTH = Dimensions.get("window").width;
 
 type Props = {
   dataStories: StoriesType;
@@ -25,18 +25,19 @@ type Props = {
   onStoryPrevious: (boolean) => void;
   onClose: () => void;
   isNewStory: boolean;
+  textReadMore: string;
 };
 
 const StoryContainer: React.FC<Props> = (props: Props) => {
-  const {dataStories} = props;
-  const {stories = []} = dataStories || {};
+  const { dataStories } = props;
+  const { stories = [] } = dataStories || {};
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModelOpen, setModel] = useState(false);
   const [isPause, setIsPause] = useState(false);
   const [isLoaded, setLoaded] = useState(false);
   const [duration, setDuration] = useState(3);
   const story = stories.length ? stories[currentIndex] : {};
-  const {isReadMore}: StoryType = story || {};
+  const { isReadMore }: StoryType = story || {};
 
   // const onVideoLoaded = (length) => {
   //   props.onVideoLoaded(length.duration);
@@ -76,12 +77,12 @@ const StoryContainer: React.FC<Props> = (props: Props) => {
     setLoaded(true);
   };
 
-  const onVideoLoaded = length => {
+  const onVideoLoaded = (length) => {
     setLoaded(true);
     setDuration(length.duration);
   };
 
-  const onPause = result => {
+  const onPause = (result) => {
     setIsPause(result);
   };
 
@@ -136,14 +137,16 @@ const StoryContainer: React.FC<Props> = (props: Props) => {
       onSwipeDown={onSwipeDown}
       onSwipeUp={onSwipeUp}
       config={config}
-      style={styles.container}>
+      style={styles.container}
+    >
       <TouchableOpacity
         activeOpacity={1}
         delayLongPress={500}
-        onPress={e => changeStory(e.nativeEvent)}
+        onPress={(e) => changeStory(e.nativeEvent)}
         onLongPress={() => onPause(true)}
         onPressOut={() => onPause(false)}
-        style={styles.container}>
+        style={styles.container}
+      >
         <View style={styles.container}>
           <Story
             onImageLoaded={onImageLoaded}
@@ -162,7 +165,9 @@ const StoryContainer: React.FC<Props> = (props: Props) => {
             onClosePress={props.onClose}
           />
 
-          {isReadMore && <Readmore onReadMore={onReadMoreOpen} />}
+          {isReadMore && (
+            <Readmore title={props.textReadMore} onReadMore={onReadMoreOpen} />
+          )}
 
           <ProgressArray
             next={nextStory}
@@ -174,7 +179,7 @@ const StoryContainer: React.FC<Props> = (props: Props) => {
             currentIndex={currentIndex}
             currentStory={stories[currentIndex]}
             length={stories.map((_, i) => i)}
-            progress={{id: currentIndex}}
+            progress={{ id: currentIndex }}
           />
         </View>
 
@@ -182,9 +187,10 @@ const StoryContainer: React.FC<Props> = (props: Props) => {
           style={styles.modal}
           position="bottom"
           isOpen={isModelOpen}
-          onClosed={onReadMoreClose}>
+          onClosed={onReadMoreClose}
+        >
           <View style={styles.bar} />
-          <WebView source={{uri: stories[currentIndex].url_readmore}} />
+          <WebView source={{ uri: stories[currentIndex].url_readmore }} />
         </Modal>
       </TouchableOpacity>
     </GestureRecognizer>
@@ -194,60 +200,60 @@ const StoryContainer: React.FC<Props> = (props: Props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: '100%',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
+    width: "100%",
+    justifyContent: "flex-start",
+    alignItems: "center",
     // paddingTop: 30,
   },
   progressBarArray: {
-    flexDirection: 'row',
-    position: 'absolute',
+    flexDirection: "row",
+    position: "absolute",
     top: 30,
-    width: '98%',
+    width: "98%",
     height: 10,
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   userView: {
-    flexDirection: 'row',
-    position: 'absolute',
+    flexDirection: "row",
+    position: "absolute",
     top: 55,
-    width: '98%',
-    alignItems: 'center',
+    width: "98%",
+    alignItems: "center",
   },
   name: {
     fontSize: 18,
-    fontWeight: '500',
+    fontWeight: "500",
     marginLeft: 12,
-    color: 'white',
+    color: "white",
   },
   time: {
     fontSize: 12,
-    fontWeight: '400',
+    fontWeight: "400",
     marginTop: 3,
     marginLeft: 12,
-    color: 'white',
+    color: "white",
   },
-  content: {width: '100%', height: '100%'},
+  content: { width: "100%", height: "100%" },
   loading: {
-    backgroundColor: 'black',
-    height: '100%',
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "black",
+    height: "100%",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
   },
   modal: {
-    width: '100%',
-    height: '90%',
-    backgroundColor: 'white',
+    width: "100%",
+    height: "90%",
+    backgroundColor: "white",
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
   },
   bar: {
     width: 50,
     height: 8,
-    backgroundColor: 'gray',
-    alignSelf: 'center',
+    backgroundColor: "gray",
+    alignSelf: "center",
     borderRadius: 4,
     marginTop: 8,
   },

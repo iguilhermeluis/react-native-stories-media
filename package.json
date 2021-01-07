@@ -1,6 +1,6 @@
 {
   "name": "react-native-stories-media",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Stories for React native Like Instagram, Whatsapp and Twitter",
   "main": "index.tsx",
   "scripts": {
@@ -15,6 +15,10 @@
     "url": "https://github.com/iguilhermeluis/rn-stories/issues"
   },
   "homepage": "https://github.com/iguilhermeluis/rn-stories/blob/master/README.md",
+  "peerDependencies": {
+    "react": ">=15.0.0",
+    "react-native": "*"
+  },
   "dependencies": {
     "react-native-video": "^5.1.0-alpha8",
     "react-native-webview": "^10.9.3",

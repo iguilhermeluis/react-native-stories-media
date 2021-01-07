@@ -16,6 +16,10 @@ import StoryContainer from "./src/StoryContainer";
 
 type Props = {
   data: StoryType[];
+  containerAvatarStyle?: StyleSheet.Styles;
+  avatarStyle?: StyleSheet.Styles;
+  titleStyle?: StyleSheet.Styles;
+  textReadMore?: string;
 };
 
 const Stories = (props: Props) => {
@@ -82,11 +86,14 @@ const Stories = (props: Props) => {
         renderItem={({ item, index }) => (
           <View style={styles.boxStory}>
             <TouchableOpacity onPress={() => onStorySelect(index)}>
-              <View style={styles.superCircle}>
-                <Image style={styles.circle} source={{ uri: item.profile }} />
+              <View style={[styles.superCircle, props.containerAvatarStyle]}>
+                <Image
+                  style={[styles.circle, props.avatarStyle]}
+                  source={{ uri: item.profile }}
+                />
               </View>
 
-              <Text style={styles.title}>{item.title}</Text>
+              <Text style={[styles.title, props.titleStyle]}>{item.title}</Text>
             </TouchableOpacity>
           </View>
         )}
@@ -117,6 +124,7 @@ const Stories = (props: Props) => {
               onStoryPrevious={onStoryPrevious}
               dataStories={item}
               isNewStory={index !== currentUserIndex}
+              textReadMore={props.textReadMore}
             />
           ))}
         </CubeNavigationHorizontal>
@@ -125,7 +133,7 @@ const Stories = (props: Props) => {
   );
 };
 
-const styles = new StyleSheet({
+const styles = new StyleSheet.create({
   boxStory: {
     marginLeft: 15,
   },
