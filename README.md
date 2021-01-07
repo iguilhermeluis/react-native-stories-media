@@ -24,9 +24,7 @@ A simple and fully customizable React Native components that provides a status/s
 
 ## Demo
 
-| DEMO 1                                                                                                     | DEMO 2                                                                                                     |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| <img src='https://github.com/iguilhermeluis/rn-stories/blob/master/demo/demo3.gif' height=900 width=800 /> | <img src='https://github.com/iguilhermeluis/rn-stories/blob/master/demo/demo2.gif' height=900 width=800 /> |
+ <img src='https://github.com/iguilhermeluis/rn-stories/blob/master/demo/demo.gif' height=900 width=800 />
 
 <br>
 
@@ -34,7 +32,7 @@ A simple and fully customizable React Native components that provides a status/s
 
 | Example One           | Example Two           | Example Three         | Example Four          | Example Five          |
 | --------------------- | --------------------- | --------------------- | --------------------- | --------------------- |
-| ![](demo/screen0.png) | ![](demo/screen1.png) | ![](demo/screen2.png) | ![](demo/screen5.png) | ![](demo/screen3.png) |
+| ![](demo/screen0.png) | ![](demo/screen4.png) | ![](demo/screen2.png) | ![](demo/screen5.png) | ![](demo/screen3.png) |
 
 <br>
 
