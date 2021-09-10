@@ -35,8 +35,9 @@ const StoryContainer: React.FC<Props> = (props: Props) => {
   const [isModelOpen, setModel] = useState(false);
   const [isPause, setIsPause] = useState(false);
   const [isLoaded, setLoaded] = useState(false);
-  const [duration, setDuration] = useState(3);
   const story = stories.length ? stories[currentIndex] : {};
+  const [duration, setDuration] = useState(story.duration ? story.duration : 3);
+
   const { isReadMore }: StoryType = story || {};
 
   // const onVideoLoaded = (length) => {
@@ -50,12 +51,12 @@ const StoryContainer: React.FC<Props> = (props: Props) => {
       prevStory();
     }
   };
-
+  //console.log('Storie que tá tocando', story )
   const nextStory = () => {
     if (stories.length - 1 > currentIndex) {
       setCurrentIndex(currentIndex + 1);
       setLoaded(false);
-      setDuration(3);
+      setDuration(story.duration ? story.duration : 3);
     } else {
       setCurrentIndex(0);
       props.onStoryNext(false);
@@ -66,7 +67,7 @@ const StoryContainer: React.FC<Props> = (props: Props) => {
     if (currentIndex > 0 && stories.length) {
       setCurrentIndex(currentIndex - 1);
       setLoaded(false);
-      setDuration(3);
+      setDuration(story.duration ? story.duration : 3);
     } else {
       setCurrentIndex(0);
       props.onStoryPrevious(false);
