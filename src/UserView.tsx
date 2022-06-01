@@ -38,10 +38,10 @@ export default memo(function UserView(props: Props) {
       <View style={{ flex: 1 }}>
         <View style={styles.barUsername}>
           <Text style={styles.name}>{props.name}</Text>
-          <Image
+          {/* <Image
             source={require("./imgs/verify_icon.png")}
             style={styles.verifyIcon}
-          />
+          /> */}
         </View>
 
         <Text style={styles.time}>

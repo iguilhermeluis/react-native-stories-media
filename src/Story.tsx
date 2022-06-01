@@ -1,12 +1,12 @@
 /* eslint-disable react/no-unused-prop-types */
-import React, {useState} from 'react';
-import {Dimensions, Image, StyleSheet, View} from 'react-native';
-import Video from 'react-native-video';
+import React, { useState } from "react";
+import { Dimensions, Image, StyleSheet, View } from "react-native";
+import Video from "react-native-video";
 // import Image from 'react-native-scalable-image';
-import PropTypes from 'prop-types';
-import {StoryType} from '.';
+import PropTypes from "prop-types";
+import { StoryType } from ".";
 
-const ScreenWidth = Dimensions.get('window').width;
+const ScreenWidth = Dimensions.get("window").width;
 
 type Props = {
   story: StoryType;
@@ -17,8 +17,8 @@ type Props = {
   isNewStory?: boolean;
 };
 const Story = (props: Props) => {
-  const {story} = props;
-  const {url, type} = story || {};
+  const { story } = props;
+  const { url, type } = story || {};
   const [isPortation, setIsPortation] = useState(false);
   const [heightScaled, setHeightScaled] = useState(231);
 
@@ -29,9 +29,9 @@ const Story = (props: Props) => {
         <ActivityIndicator color="white" />
       </View>
       )} */}
-      {type === 'image' ? (
+      {type === "image" ? (
         <Image
-          source={{uri: url}}
+          source={{ uri: url }}
           onLoadEnd={props.onImageLoaded}
           style={styles.content}
           resizeMode="stretch"
@@ -39,25 +39,25 @@ const Story = (props: Props) => {
         />
       ) : (
         <Video
-          source={{uri: url}}
+          source={{ uri: url }}
           paused={props.pause || props.isNewStory}
-          onLoad={item => {
-            const {width, height} = item.naturalSize;
+          onLoad={(item) => {
+            const { width, height } = item.naturalSize;
             const heightScaled = height * (ScreenWidth / width);
             let isPortrait = height > width;
-            setIsPortation(height > width);
+            setIsPortation(isPortrait);
             setHeightScaled(heightScaled);
             props.onVideoLoaded(item);
 
             console.warn(width, height, heightScaled);
-            console.warn('É PAISAGEM?', isPortrait);
+            console.warn("É PAISAGEM?", isPortrait);
           }}
           style={
             isPortation
-              ? [styles.contentVideoPortation, {height: heightScaled}]
-              : [styles.contentVideo, {height: heightScaled}]
+              ? [styles.contentVideoPortation, { height: heightScaled }]
+              : [styles.contentVideo, { height: heightScaled }]
           }
-          resizeMode={'stretch'}
+          resizeMode={"stretch"}
         />
       )}
     </View>
@@ -73,37 +73,37 @@ Story.propTypes = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: '100%',
-    backgroundColor: 'black',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: "100%",
+    backgroundColor: "black",
+    justifyContent: "center",
+    alignItems: "center",
   },
-  content: {width: '100%', height: '100%', flex: 1},
+  content: { width: "100%", height: "100%", flex: 1 },
   contentVideo: {
     width: ScreenWidth + 20,
     //aspectRatio: 1,
-    backgroundColor: '#000',
+    backgroundColor: "#000",
     //flex: 1,
     height: 231,
   },
   contentVideoPortation: {
     width: ScreenWidth + 20,
     //aspectRatio: 1,
-    backgroundColor: '#000',
+    backgroundColor: "#000",
     //flex: 1,
     height: 231,
   },
   imageContent: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
     flex: 1,
   },
   loading: {
-    backgroundColor: 'black',
-    height: '100%',
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "black",
+    height: "100%",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 

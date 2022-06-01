@@ -20,21 +20,19 @@
     "react-native": "*"
   },
   "dependencies": {
-    "react-native-video": "^5.1.0-alpha8",
-    "react-native-webview": "^10.9.3",
+    "react-native-3dcube-navigation": "^1.0.4",
+    "react-native-modalbox": "^1.7.1",
     "react-native-swipe-gestures": "^1.0.3",
     "react-native-vector-icons": "^6.6.0",
-    "react-native-3dcube-navigation": "^1.0.4",
-    "react-native-modalbox": "^1.7.1"
+    "react-native-video": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/runtime": "^7.4.5",
-    "babel-jest": "^24.8.0",
-    "jest": "^24.8.0",
-    "metro-react-native-babel-preset": "^0.54.1",
-    "react-test-renderer": "16.8.3",
+    "@types/react-native-modalbox": "^1.4.10",
+    "@types/react-native-video": "^5.0.13",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.8.0",
     "eslint": "^5.15.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.1.0",
@@ -43,7 +41,10 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
-    "prettier": "^1.16.4"
+    "jest": "^24.8.0",
+    "metro-react-native-babel-preset": "^0.54.1",
+    "prettier": "^1.16.4",
+    "react-test-renderer": "16.8.3"
   },
   "repository": {
     "type": "git",

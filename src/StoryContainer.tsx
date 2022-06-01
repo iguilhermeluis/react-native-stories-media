@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   ActivityIndicator,
   Dimensions,
@@ -7,13 +7,10 @@ import {
   View,
   TouchableOpacity,
 } from "react-native";
-
-import { WebView } from "react-native-webview";
-import Modal from "react-native-modalbox";
 import GestureRecognizer from "react-native-swipe-gestures";
 import Story from "./Story";
 import UserView from "./UserView";
-import Readmore from "./Readmore";
+// import Readmore from "./Readmore";
 import ProgressArray from "./ProgressArray";
 import { StoriesType, StoryType } from ".";
 
@@ -91,10 +88,6 @@ const StoryContainer: React.FC<Props> = (props: Props) => {
     setIsPause(true);
     setModel(true);
   };
-  const onReadMoreClose = () => {
-    setIsPause(false);
-    setModel(false);
-  };
 
   const loading = () => {
     if (!isLoaded) {
@@ -166,9 +159,9 @@ const StoryContainer: React.FC<Props> = (props: Props) => {
             onClosePress={props.onClose}
           />
 
-          {isReadMore && (
+          {/* {isReadMore && (
             <Readmore title={props.textReadMore} onReadMore={onReadMoreOpen} />
-          )}
+          )} */}
 
           <ProgressArray
             next={nextStory}
@@ -183,16 +176,6 @@ const StoryContainer: React.FC<Props> = (props: Props) => {
             progress={{ id: currentIndex }}
           />
         </View>
-
-        <Modal
-          style={styles.modal}
-          position="bottom"
-          isOpen={isModelOpen}
-          onClosed={onReadMoreClose}
-        >
-          <View style={styles.bar} />
-          <WebView source={{ uri: stories[currentIndex].url_readmore }} />
-        </Modal>
       </TouchableOpacity>
     </GestureRecognizer>
   );

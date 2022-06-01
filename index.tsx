@@ -20,11 +20,18 @@ type Props = {
   avatarStyle?: StyleSheet.Styles;
   titleStyle?: StyleSheet.Styles;
   textReadMore?: string;
+  defaultStory?: number;
+  onClosePress?: () => void;
 };
 
 const Stories = (props: Props) => {
-  const [isModelOpen, setModel] = useState(false);
-  const [currentUserIndex, setCurrentUserIndex] = useState(0);
+  const hasDefaultStory =
+    typeof props.defaultStory === "number" &&
+    Number(props.defaultStory) < props.data.length - 1;
+  const [isModelOpen, setModel] = useState(hasDefaultStory); // defaultStory ? true : false);
+  const [currentUserIndex, setCurrentUserIndex] = useState(
+    hasDefaultStory ? Number(props.defaultStory) : 0
+  );
   const [currentScrollValue, setCurrentScrollValue] = useState(0);
   const modalScroll = useRef(null);
 
@@ -35,6 +42,9 @@ const Stories = (props: Props) => {
 
   const onStoryClose = () => {
     setModel(false);
+    if (typeof props.onClosePress === "function") {
+      props.onClosePress();
+    }
   };
 
   const onStoryNext = (isScroll: boolean) => {
@@ -67,12 +77,10 @@ const Stories = (props: Props) => {
   const onScrollChange = (scrollValue) => {
     if (currentScrollValue > scrollValue) {
       onStoryNext(true);
-      console.log("next");
       setCurrentScrollValue(scrollValue);
     }
     if (currentScrollValue < scrollValue) {
       onStoryPrevious(false);
-      console.log("previous");
       setCurrentScrollValue(scrollValue);
     }
   };
@@ -133,7 +141,7 @@ const Stories = (props: Props) => {
   );
 };
 
-const styles = new StyleSheet.create({
+const styles = StyleSheet.create({
   boxStory: {
     marginLeft: 15,
   },
