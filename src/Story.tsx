@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unused-prop-types */
 import React, {useState} from 'react';
 import {Dimensions, Image, StyleSheet, View} from 'react-native';
-import Video from 'react-native-video';
+import { Video } from 'expo-av';
 // import Image from 'react-native-scalable-image';
 import PropTypes from 'prop-types';
 import {StoryType} from '.';
@@ -40,7 +40,7 @@ const Story = (props: Props) => {
       ) : (
         <Video
           source={{uri: url}}
-          paused={props.pause || props.isNewStory}
+          shouldPlay={!props.pause && !props.isNewStory}
           onLoad={item => {
             const {width, height} = item.naturalSize;
             const heightScaled = height * (ScreenWidth / width);
