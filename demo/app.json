@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "stories-demo",
+    "slug": "stories-demo",
+    "version": "1.0.0",
+    "sdkVersion": "53.0.0",
+    "platforms": ["ios", "android"],
+    "entryPoint": "./App.tsx"
+  }
+}

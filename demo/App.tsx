@@ -1,71 +1,3 @@
-# React Native Stories Media ⚡
-
-[![npm version](https://img.shields.io/npm/v/react-native-stories-media.svg)](https://www.npmjs.com/package/react-native-stories-media)
-![Platform - Android and IOS](https://img.shields.io/badge/platform-Android%20%7C%20IOS-green.svg)
-
-![](assets/storybg.jpeg)
-<br>
-
-A simple and fully customizable React Native components that provides a status/stories feature like Whatsapp, Instagram. For navigation across all the stories you can touch the left or right portion of the screen similar to what we see on Whatsapp or Instagram. The library works seemleslly across both Android as well as IOS platform developed with ❤️ in <b>Typescript & React</b> 🔥.
-
-#### Feature's include :
-
-- Video in portrait and landscape
-- Read more with webview
-- Progress bar with custom duration & styling options.
-- A fully customizable Header View, you can use default one or pass in your choice of component.
-
-<br>
-
-## Spread Your ❤️:
-
-[![GitHub followers](https://img.shields.io/github/followers/iguilhermeluis.svg?style=social&label=Follow)](https://github.com/iguilhermeluis) [![Twitter Follow](https://img.shields.io/twitter/follow/gldesenvolvedor.svg?style=social)](https://twitter.com/gldesenvolvedor)
-<br>
-
-## Demo
-
- <img src='https://github.com/iguilhermeluis/react-native-stories-media/blob/main/demo/demo.gif?raw=true' height=480 width=270 />
-
-### Running the demo
-
-```bash
-cd demo
-expo start
-```
-
-<br>
-
-## Screenshots
-
-| Example One           | Example Two           | Example Three         | Example Four          | Example Five          |
-| --------------------- | --------------------- | --------------------- | --------------------- | --------------------- |
-| ![](demo/screen0.png) | ![](demo/screen4.png) | ![](demo/screen2.png) | ![](demo/screen5.png) | ![](demo/screen3.png) |
-
-<br>
-
-## Installation
-
-If using yarn:
-
-```
-yarn add react-native-stories-media
-```
-
-If using npm:
-
-```
-npm i react-native-stories-media
-```
-
-<br>
-
-## Usage
-
-For example code, <a href='https://github.com/iguilhermeluis/react-native-stories-media/blob/main/demo/App.tsx'><b>Click here</b></a>
-
-#### Basic Usage
-
-```js
 import React from "react";
 import { View } from "react-native";
 import Stories from "react-native-stories-media";
@@ -214,21 +146,10 @@ const data = [
   },
 ];
 
-export default function Demo() {
+export default function StoriesTeste() {
   return (
     <View style={{ flex: 1, paddingVertical: 20 }}>
       <Stories data={data} />
     </View>
   );
 }
-```
-
-## About Me
-
-## Guilherme Luis Faustino
-
-_Hi, I'm Guilherme Luis. I've been working as Front-End Developer since 2009. I'm passionate about open source projects, I believe that the dissemination of knowledge and good ideas inspires and improves the world._
-
-For more exciting updates follow me,
-
-[![Twitter Follow](https://img.shields.io/twitter/follow/gldesenvolvedor.svg?style=social)](https://twitter.com/gldesenvolvedor)
