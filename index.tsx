@@ -20,6 +20,8 @@ type Props = {
   avatarStyle?: StyleSheet.Styles;
   titleStyle?: StyleSheet.Styles;
   textReadMore?: string;
+  renderTextStory?: (story: StoryType) => React.ReactNode;
+  renderAudioStory?: (story: StoryType) => React.ReactNode;
 };
 
 const Stories = (props: Props) => {
@@ -125,6 +127,8 @@ const Stories = (props: Props) => {
               dataStories={item}
               isNewStory={index !== currentUserIndex}
               textReadMore={props.textReadMore}
+              renderTextStory={props.renderTextStory}
+              renderAudioStory={props.renderAudioStory}
             />
           ))}
         </CubeNavigationHorizontal>

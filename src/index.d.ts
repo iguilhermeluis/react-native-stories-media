@@ -6,7 +6,8 @@ export type user = {
 export type StoryType = {
   id?: number;
   url?: string;
-  type?: string | 'image' | 'video' | 'text';
+  text?: string;
+  type?: string | 'image' | 'video' | 'text' | 'audio';
   duration?: number;
   isReadMore?: boolean;
   isSeen?: boolean;
