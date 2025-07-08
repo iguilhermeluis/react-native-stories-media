@@ -216,6 +216,21 @@ export default function Demo() {
 }
 ```
 
+### Custom story types
+
+Stories now supports `text` and `audio` story types. You can customize how these
+stories are rendered by passing `renderTextStory` and `renderAudioStory` props.
+
+```jsx
+<Stories
+  data={data}
+  renderTextStory={(story) => <Text>{story.text}</Text>}
+  renderAudioStory={(story) => (
+    <Video source={{ uri: story.url }} audioOnly />
+  )}
+/>
+```
+
 ## About Me
 
 ## Guilherme Luis Faustino

@@ -26,6 +26,8 @@ type Props = {
   onClose: () => void;
   isNewStory: boolean;
   textReadMore: string;
+  renderTextStory?: (story: StoryType) => React.ReactNode;
+  renderAudioStory?: (story: StoryType) => React.ReactNode;
 };
 
 const StoryContainer: React.FC<Props> = (props: Props) => {
@@ -106,6 +108,8 @@ const StoryContainer: React.FC<Props> = (props: Props) => {
               pause
               onVideoLoaded={onVideoLoaded}
               story={story}
+              renderTextStory={props.renderTextStory}
+              renderAudioStory={props.renderAudioStory}
             />
           </View>
           <ActivityIndicator color="white" />
@@ -155,6 +159,8 @@ const StoryContainer: React.FC<Props> = (props: Props) => {
             isNewStory={props.isNewStory}
             onVideoLoaded={onVideoLoaded}
             story={story}
+            renderTextStory={props.renderTextStory}
+            renderAudioStory={props.renderAudioStory}
           />
 
           {loading()}

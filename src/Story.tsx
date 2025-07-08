@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unused-prop-types */
 import React, {useState} from 'react';
-import {Dimensions, Image, StyleSheet, View} from 'react-native';
+import {Dimensions, Image, StyleSheet, View, Text} from 'react-native';
 import Video from 'react-native-video';
 // import Image from 'react-native-scalable-image';
 import PropTypes from 'prop-types';
@@ -15,6 +15,8 @@ type Props = {
   pause: boolean;
   isLoaded?: boolean;
   isNewStory?: boolean;
+  renderTextStory?: (story: StoryType) => React.ReactNode;
+  renderAudioStory?: (story: StoryType) => React.ReactNode;
 };
 const Story = (props: Props) => {
   const {story} = props;
@@ -35,31 +37,47 @@ const Story = (props: Props) => {
           onLoadEnd={props.onImageLoaded}
           style={styles.content}
           resizeMode="stretch"
-          // width={ScreenWidth}
         />
-      ) : (
+      ) : type === 'video' ? (
         <Video
           source={{uri: url}}
           paused={props.pause || props.isNewStory}
           onLoad={item => {
             const {width, height} = item.naturalSize;
             const heightScaled = height * (ScreenWidth / width);
-            let isPortrait = height > width;
-            setIsPortation(height > width);
+            const isPortrait = height > width;
+            setIsPortation(isPortrait);
             setHeightScaled(heightScaled);
             props.onVideoLoaded(item);
-
-            console.warn(width, height, heightScaled);
-            console.warn('É PAISAGEM?', isPortrait);
           }}
           style={
             isPortation
               ? [styles.contentVideoPortation, {height: heightScaled}]
               : [styles.contentVideo, {height: heightScaled}]
           }
-          resizeMode={'stretch'}
+          resizeMode="stretch"
         />
-      )}
+      ) : type === 'text' ? (
+        props.renderTextStory ? (
+          <>{props.renderTextStory(story)}</>
+        ) : (
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>{story.text || String(url)}</Text>
+          </View>
+        )
+      ) : type === 'audio' ? (
+        props.renderAudioStory ? (
+          <>{props.renderAudioStory(story)}</>
+        ) : (
+          <Video
+            source={{uri: url}}
+            paused={props.pause || props.isNewStory}
+            onLoad={props.onVideoLoaded}
+            audioOnly
+            style={styles.audio}
+          />
+        )
+      ) : null}
     </View>
   );
 };
@@ -97,6 +115,23 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     flex: 1,
+  },
+  textContainer: {
+    flex: 1,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  text: {
+    color: 'white',
+    fontSize: 24,
+    textAlign: 'center',
+  },
+  audio: {
+    width: ScreenWidth + 20,
+    height: 50,
+    backgroundColor: '#000',
   },
   loading: {
     backgroundColor: 'black',
